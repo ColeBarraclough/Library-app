@@ -1,0 +1,26 @@
+.MediaList {
+    width: 95vw;
+    height: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.MediaItem {
+    margin: 5px;
+}
+
+.MediaList::-webkit-scrollbar {
+    width: 10vw;
+}
+
+.MediaList::-webkit-scrollbar-track {
+
+}
+
+.MediaList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #af4f3e;
+    outline: 1px solid black;
+}

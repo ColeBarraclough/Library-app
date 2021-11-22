@@ -1,0 +1,15 @@
+.Recommend {
+    background-color: #D35F4A;
+    width: 100vw;
+    height: 100%;
+}
+
+.ListContianer {
+    margin-left: 10px;
+    width: 80vw;
+    margin-right: 0px;
+}
+
+.ListContianerTitle {
+    color: honeydew;
+}
