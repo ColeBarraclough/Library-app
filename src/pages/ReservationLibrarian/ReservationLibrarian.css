@@ -1,0 +1,20 @@
+.reservations {
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.active-reservations {
+    border-color: brown;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.pending-reservations {
+    border-color: brown;
+    border-style: solid;
+    border-width: 2px;
+}

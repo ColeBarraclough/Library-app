@@ -9,7 +9,7 @@ const Login = () => {
         <div className="Login">
             <form>
                 <label>
-                    <p>Username</p>
+                    <p>Card ID / Employee ID</p>
                     <input type="text" />
                 </label>
                 <label>

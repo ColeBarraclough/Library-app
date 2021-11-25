@@ -5,9 +5,9 @@ const Navbar = () => {
     return(
         <div className='navbar'>
             <input className='Search' type="search" placeholder="Search" />
-            <Link to="/">
+            {/* <Link to="/">
                 <h1>Home</h1>
-            </Link>
+            </Link> */}
             <Link to="/login">
                 <button className='Login-button'>Login</button>
             </Link>
