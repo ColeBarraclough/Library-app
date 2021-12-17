@@ -2,25 +2,30 @@ const data = [
     {
         key: 0,
         title: "Media to add",
+        type: "cd",
         thumbnail: "logo192.png",
         link: "",
+        id: 1
     },
     {
         key: 1,
         title: "Media to add",
         thumbnail: "logo192.png",
+        type: "book",
         link: "",
     },
     {
         key: 2,
         title: "Media to add",
         thumbnail: "logo192.png",
+        type: 'ebook',
         link: "",
     },
     {
         key: 3,
         title: "Media to add",
         thumbnail: "logo192.png",
+        type: 'audiobook',
         link: "",
     },
     {

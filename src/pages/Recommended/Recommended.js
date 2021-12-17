@@ -1,6 +1,6 @@
 import './Recommended.css';
-import MediaList from './component/MediaList';
-import MediaThumb from './component/MediaThumb';
+import MediaList from '../component/MediaList';
+import MediaThumb from '../component/MediaThumb';
 import data from './../data'
 
 

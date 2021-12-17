@@ -1,0 +1,76 @@
+
+input:disabled {
+    border: none;
+    background-color: #D35F4A;
+    color: black;
+}
+
+input::placeholder {
+    font-size: 24px;
+    color: black;
+}
+
+input:disabled::value {
+    color: black;
+}
+
+.account-input {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40vw;
+}
+
+.accoutn-label {
+    width: 30vw;
+}
+
+.account-first-name {
+    display: flex;
+    flex-direction: row;
+    gap: 55px;
+}
+
+
+.account-last-name {
+    display: flex;
+    flex-direction: row;
+    gap: 55px;
+}
+
+.account-card-id {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.account-address {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.account-date-of-birth {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.account-edit {
+    width: 150px;
+    height: 40px;
+
+
+}
+
+
+
+.account-edit-div {
+
+    display: flex;
+    margin-left: 10vw;
+}

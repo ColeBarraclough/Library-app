@@ -1,6 +1,8 @@
 import './Media.css'
 
-const Media = (props) => {
+const Media = ({title, }) => {
+
+
     return (
         <div>
             <h1>Media Title</h1>

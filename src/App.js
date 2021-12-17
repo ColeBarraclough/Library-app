@@ -12,18 +12,36 @@ import CreateAccount from './pages/CreateAccount/CreateAccount';
 import Administration from './pages/Administration/Administration';
 import AddMedia from './pages/AddMedia/AddMedia';
 import AccountInfo from './pages/AccountInfo/AccountInfo';
+import SearchResults from './pages/SearchResults/SearchResults';
+
 
 import { useState } from 'react'
 
+const customer_d = {
+  cardId: -1,
+  firstName: "",
+  lastName: "",
+  password: "",
+  address: "",
+  dateOfBirth: "",
+}
+
 function App() {
-  const [token, setToken] = useState(true);
+  const [token, setToken] = useState("");
+  const [create, setCreate] = useState(false);
+  const [customer, setCustomer] = useState(customer_d);
+
+
 
   if(!token) {
-    return <Login setToken={setToken} />
+    if (create) {
+      return <CreateAccount setToken={setToken} setCustomer={setCustomer}/>
+    }
+    return <Login setToken={setToken} setCustomer={setCustomer} setCreate={setCreate}/>
   }
   return (
     <Router>
-      <Navbar />
+      <Navbar token={token}/>
       <Switch>
         <Route exact path="/">
           <Recommended />
@@ -37,7 +55,7 @@ function App() {
         <Route exact path="/reservation/client">
           <ReservationClient />
         </Route>
-        <Route exact path="/media">
+        <Route path="/media">
           <Media />
         </Route>
         <Route exact path="/library">
@@ -53,7 +71,10 @@ function App() {
           <AddMedia />
         </Route>
         <Route exact path="/account-info">
-          <AccountInfo />
+          <AccountInfo customer={customer} setCustomer={setCustomer}/>
+        </Route>
+        <Route exact path="/search-results">
+          <SearchResults />
         </Route>
 
       </Switch>

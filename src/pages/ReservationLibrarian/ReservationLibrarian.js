@@ -1,4 +1,5 @@
 import './ReservationLibrarian.css'
+import Reservation from '../component/Reservation'
 
 const ReservationLibrarian = () => {
     return (
@@ -14,13 +15,11 @@ const ReservationLibrarian = () => {
             <h3>Pending Reservations </h3>
             <div className='pending-reservations'>
                 <form>
-                    <p>Info about reservation</p>
-                    <button type="button">Approve</button>
-                    <button type="button">Deny</button>
-                    <p>Info about reservation</p>
-                    <button type="button">Approve</button>
-                    <button type="button">Deny</button>
- 
+                    <div>
+                        <Reservation title={"TKM"} type={"cd"} id={1}/>
+                        <button className='accept-button'>Accept</button>
+                        <button className='deny-button'>Deny</button>
+                    </div>
                 </form>
             </div>
         </div>
