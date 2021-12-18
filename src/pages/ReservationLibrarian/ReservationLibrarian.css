@@ -5,12 +5,16 @@
 }
 
 .active-reservations {
+    height: 50vh;
     border-color: brown;
     border-style: solid;
     border-width: 2px;
+    overflow: scroll;
 }
 
 .pending-reservations {
+    height: 50vh;
+    overflow: scroll;
     border-color: brown;
     border-style: solid;
     border-width: 2px;
@@ -36,4 +40,10 @@
     align-self: center;
     width: 50px;
     height: 50px;
+}
+
+.returned {
+    grid-row: 0;
+    grid-column: 0;
+    align-self: bottom;
 }

@@ -28,6 +28,8 @@ const ReservationLibrarian = ({librarian}) => {
                 jsonResponse.value.forEach(element => {
                     if (element.borrower_id != null) {
                     bookList.push({
+                        media_id: element.system_id,
+                        borrower_id: element.borrower_id,
                         date_of_check_out: element.date_of_check_out,
                         due_date: element.due_date,
                         key: element.system_id,
@@ -39,6 +41,7 @@ const ReservationLibrarian = ({librarian}) => {
                         publishing_date: element.publishing_date,
                         author_id: element.author_id,
                         pages: element.pages
+
 
 
                     })
@@ -63,6 +66,8 @@ const ReservationLibrarian = ({librarian}) => {
                 jsonResponse.value.forEach(element => {
                     if (element.borrower_id != null) {
                     cdList.push({
+                        media_id: element.system_id,
+                        borrower_id: element.borrower_id,
                         date_of_check_out: element.date_of_check_out,
                         due_date: element.due_date,
                         key: element.system_id,
@@ -93,6 +98,8 @@ const ReservationLibrarian = ({librarian}) => {
                 jsonResponse.value.forEach(element => {
                     if (element.borrower_id != null) {
                         dvdList.push({
+                            media_id: element.system_id,
+                            borrower_id: element.borrower_id,
                             date_of_check_out: element.date_of_check_out,
                             due_date: element.due_date,
                             key: element.system_id,
@@ -244,7 +251,7 @@ const ReservationLibrarian = ({librarian}) => {
                 customer_card_id: element.customer_card_id
             })
         });
-
+        setActiveReservations_g(null)
         console.log(response)
     }
 
@@ -263,10 +270,53 @@ const ReservationLibrarian = ({librarian}) => {
                 customer_card_id: element.customer_card_id
             })
         });
+        setActiveReservations_g(null)
+    }
+
+    const handleReturn = async (e, element) => {
+        e.preventDefault();
+        console.log(element)
+        let item;
+        let response = await fetch(`https://localhost:44300/api/${element.type}?system_id=${element.id}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if (response.ok) {
+            const jsonResponse = await response.json()
+            if (jsonResponse.state == true) {
+                item = jsonResponse.value;
+            }
+        }
+        console.log(item)
+
+        item.borrower_id = null;
+        item.date_of_check_out = null;
+        item.due_date = null;
+
+        
+        console.log(element);
+        response = await fetch(`https://localhost:44300/api/${element.type}?system_id=${element.media_id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+            item )
+        });
+        setCheckedOut(null)
+        
     }
 
 
+    if (librarian == null) {
+        return(
+            <div>
 
+            </div>
+        )
+    }
     return (
         <div className="reservations">
             <h3>Check outs </h3>
@@ -276,15 +326,15 @@ const ReservationLibrarian = ({librarian}) => {
                                                                                         <div className='reservations-dates'>
                                                                                             <p>Pickup Date: {element.date_of_check_out.substring(0, 10)}</p>
                                                                                             <p>Return Date: {element.due_date.substring(0, 10)}</p>
+                                                                                            <button className='returned' onClick={e => (handleReturn(e, element))}>Returned</button>
                                                                                         </div >
-                                                                                
                                                                                         </div>   
                                                                                         ) : <p>There are no check outs</p>}
             </div>
             <h3>Pending Reservations </h3>
             <div className='pending-reservations'>
                 <form>
-                {activeReservations_g != null? activeReservations_g.length == 0 ? null: activeReservations_g.map(element => <div className='reservation-lib'>
+                {activeReservations_g != null? activeReservations_g.length == 0 ? <p>You have no reservations</p>: activeReservations_g.map(element => <div className='reservation-lib'>
                                                                                         <p className='reservations-title'>{element.title}</p>
                                                                                         <div className='reservations-dates'>
                                                                                             <p>Pickup Date: {element.pickupDate.substring(0, 10)}</p>

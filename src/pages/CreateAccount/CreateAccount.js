@@ -89,17 +89,37 @@ const CreateAccount = ({setCustomer, setToken}) => {
     }
 
     return (
-        <div>
+        <div className='create-account'>
             <h1>Create A new Account</h1>
             <form>
-                <input type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></input>
-                <input type="text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}></input>
-                <h6> Date of Birth </h6>
-                <input type="date" onChange={e => setDateOfBirth(e.target.value)}></input>
-                <input type="text" placeholder="Address" onChange={e => setAddress(e.target.value)}></input>
-                <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
-                <Select options={libraryOptions}  onChange={handleChange}/>
-                <button type="submit" onClick={onSubmit}>Submit</button>
+                <div className='account-form'> 
+                    <label className='create-account-label'>
+                        <p>First Name</p>
+                        <input type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}></input>
+                    </label>
+                    <label className='create-account-label'>
+                        <p>Last Name</p>
+                        <input type="text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}></input>
+                    </label>
+                    <label className='create-account-label'>
+                        <p> Date of Birth </p>
+                        <input type="date" onChange={e => setDateOfBirth(e.target.value)}></input>
+                    </label>
+                    <label className='create-account-label'>
+                        <p>Address </p>
+                        <input type="text" placeholder="Address" onChange={e => setAddress(e.target.value)}></input>
+                    </label>
+                    <label className='create-account-label'>
+                        <p>Password </p>
+                        <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
+                    </label>
+                    <label className='create-account-label'>
+                        <p>Closest Library</p>
+                        <Select className='select' options={libraryOptions}  onChange={handleChange}/>
+                    </label>
+                    
+                    <button className='create-submit' type="submit" onClick={onSubmit}>Submit</button>
+                </div>
             </form>
         </div>
     )

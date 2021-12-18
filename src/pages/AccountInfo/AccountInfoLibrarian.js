@@ -79,7 +79,13 @@ const AccountInfoLibrarian = ({librarian, setLibrarian}) => {
 
         
     }
-
+    if (librarian == null) {
+        return(
+            <div>
+                
+            </div>
+        )
+    }
     return (
         <div className='account'>
             <h1> Your Account </h1>

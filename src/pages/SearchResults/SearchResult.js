@@ -25,7 +25,7 @@ const SearchResult = ({title, type, id, genre, address, name, website_url}) => {
 
     if (type === "library") {
         return (
-            <div>
+            <div className='result'>
                 <Link to={`/library?${address}`}>
                     <h2>{name}</h2>
                     <h4>{address}</h4>
@@ -36,7 +36,7 @@ const SearchResult = ({title, type, id, genre, address, name, website_url}) => {
     }
     
     return (
-        <div>
+        <div className='result'>
             <Link to={`/media?${id}`}>
                 <h2>{title}</h2>
                 <h4>{genre}</h4>

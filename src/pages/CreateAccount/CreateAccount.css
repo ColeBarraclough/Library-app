@@ -1,0 +1,22 @@
+.create-account {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-account-label {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    gap: 10px;
+}
+
+.create-submit {
+    width: 100px;
+    height: 50px;
+}

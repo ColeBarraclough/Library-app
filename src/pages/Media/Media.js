@@ -322,8 +322,8 @@ const Media = ({customer}) => {
             },
             body: JSON.stringify({
                 librarian_id: 1,
-                return_date: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-                pickup_date: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                return_date: new Date(new Date().getTime() + 30  * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                pickup_date: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
                 media_id: media.system_id,
                 customer_card_id: customer.cardId
             })
