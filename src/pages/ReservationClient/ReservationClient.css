@@ -1,0 +1,24 @@
+.reservation {
+    width: 100%;
+    border: black solid 2px;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50%, 50%;
+    
+}
+
+.reservations-title {
+    margin-left: 20px;
+    grid-row-start: 1;
+    justify-self: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.reservations-dates {
+    margin-right: 20px;
+    grid-row-start: 1;
+    justify-self: right;
+    display: flex;
+    flex-direction: column;
+}

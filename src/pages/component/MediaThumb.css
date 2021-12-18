@@ -21,8 +21,9 @@
 .MediaThumbContent {
     height: 230px;
     width: 150px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
 }
 
 .MediaThumb:hover {
@@ -36,7 +37,9 @@
 }
 
 .Thumbnail-title {
-    align-self: bottom;
+    height: 50px;
+    /* margin-top: 25px; */
+    overflow: hidden;
     align-self: center;
     justify-self: center;
 }

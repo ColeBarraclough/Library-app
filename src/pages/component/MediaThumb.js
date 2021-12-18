@@ -10,6 +10,9 @@ const MediaThumb = ({title, type, id}) => {
         case 'cd':
             imageUrl = 'cd.png'
             break;
+        case 'dvd':
+            imageUrl = 'dvdpng.png'
+            break;
         case 'ebook':
             imageUrl = 'ebook.png'
             break;

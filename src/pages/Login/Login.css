@@ -10,3 +10,15 @@ input {
     border: 0.5px solid #833e31;
     background-color: #b15545;
 }
+
+.create-account-tag {
+    color: blue;
+    text-decoration: underline;
+}
+
+.submit-login {
+    margin-top: 50px;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+}

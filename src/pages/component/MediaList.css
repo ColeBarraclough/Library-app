@@ -15,9 +15,6 @@
     width: 10vw;
 }
 
-.MediaList::-webkit-scrollbar-track {
-
-}
 
 .MediaList::-webkit-scrollbar-thumb {
     border-radius: 10px;

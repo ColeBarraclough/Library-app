@@ -1,0 +1,18 @@
+.add-library {
+    width: 90%;
+
+}
+
+.add-librarian {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin {
+    width: 90vw;
+}
+
+.admin-button {
+    height: 50px;
+    width: 100px;
+}

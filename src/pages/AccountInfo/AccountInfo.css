@@ -2,10 +2,10 @@
 input:disabled {
     border: none;
     background-color: #D35F4A;
-    color: black;
+    color: honeydew;
 }
 
-input::placeholder {
+input {
     font-size: 24px;
     color: black;
 }

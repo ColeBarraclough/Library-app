@@ -5,6 +5,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter';
   font-size: 22px;
+  color: honeydew;
+}
+
+a {
+  font-size: 16px;
+  color: honeydew;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.select {
+  color: black;
 }
 
 /* code {

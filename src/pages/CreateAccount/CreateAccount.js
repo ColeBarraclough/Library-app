@@ -1,5 +1,6 @@
-import { useState } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react/cjs/react.development';
 import './CreateAccount.css'
+import Select from 'react-select';
 
 const CreateAccount = ({setCustomer, setToken}) => {
     const [firstName, setFirstName] = useState();
@@ -7,10 +8,32 @@ const CreateAccount = ({setCustomer, setToken}) => {
     const [address, setAddress] = useState();
     const [dateOfBirth, setDateOfBirth] = useState();
     const [password, setPassword] = useState();
+    const [libraryAddress, setLibraryAddress] = useState();
+    let libraryOptions = [];
+
+    useEffect( async () => {
+        const response = await fetch(`https://localhost:44300/api/library`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            if (jsonResponse.state === true) {
+                jsonResponse.value.forEach(library => {
+                    libraryOptions.push({value: library.address, label: library.name + " " + library.address})
+                });
+            }
+        }
+    })
+
+    const handleChange = (selectedOption) => {
+        setLibraryAddress(selectedOption.value);
+      }
 
     const onSubmit = async e => {
         e.preventDefault();
-        console.log(dateOfBirth);
         const response = await fetch(`https://localhost:44300/api/customer`, {
             method: "POST",
             headers: {
@@ -29,17 +52,37 @@ const CreateAccount = ({setCustomer, setToken}) => {
         if (response.ok) {
             const jsonResponse = await response.json();
             if (jsonResponse.state === true) {
-                setCustomer({
-                    cardId: jsonResponse.value.card_id,
-                    firstName: jsonResponse.value.first_name,
-                    lastName: jsonResponse.value.last_name,
-                    address: jsonResponse.value.address,
-                    password: jsonResponse.value.password,
-                    dateOfBirth: jsonResponse.value.date_of_birth
-                })
-                setToken(`C${jsonResponse.value.card_id}`);
-                alert("Account has been created");
-                return;
+                const response2 = await fetch(`https://localhost:44300/api/library_card`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id_no: jsonResponse.value.card_id,
+                        issuer_address: libraryAddress,
+                        date_of_expiration: "2023-10-10T00:00:00"
+                    })
+        
+                });
+                if (response2.ok) {
+                    const jsonResponse2 = await response2.json();
+                    if (jsonResponse2.state === true) {
+                        setCustomer({
+                            cardId: jsonResponse.value.card_id,
+                            firstName: jsonResponse.value.first_name,
+                            lastName: jsonResponse.value.last_name,
+                            address: jsonResponse.value.address,
+                            password: jsonResponse.value.password,
+                            dateOfBirth: jsonResponse.value.date_of_birth
+                        })
+                        setToken(`C${jsonResponse.value.card_id}`);
+                        alert("Account has been created");
+                        return;
+                    } else {
+                        alert(jsonResponse2.message);
+                    }
+                }
+
             }
         }
         alert("There was a problem creating your account");
@@ -55,6 +98,7 @@ const CreateAccount = ({setCustomer, setToken}) => {
                 <input type="date" onChange={e => setDateOfBirth(e.target.value)}></input>
                 <input type="text" placeholder="Address" onChange={e => setAddress(e.target.value)}></input>
                 <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)}></input>
+                <Select options={libraryOptions}  onChange={handleChange}/>
                 <button type="submit" onClick={onSubmit}>Submit</button>
             </form>
         </div>
