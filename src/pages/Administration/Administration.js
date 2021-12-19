@@ -157,6 +157,14 @@ const Administration = (props) => {
             }
         }
     }
+
+        if (librarian == null) {
+        return(
+            <div>
+                
+            </div>
+        )
+    }
     return (
         <div className='admin'>
             <h1>Add/Create Libraries </h1>

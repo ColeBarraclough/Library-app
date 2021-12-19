@@ -126,6 +126,24 @@ const SearchResults = ({searchTerms}) => {
         }
 
 
+        response = await fetch(`https://localhost:44300/api/author`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            if (jsonResponse.state === true) {
+                jsonResponse.value.forEach(author => {
+                    if (checkAllWords(author.first_name) || checkAllWords(author.last_name)) {
+                        searchResults.push({author_id: author.author_id, type: "author", full_name: author.first_name + " " + author.last_name})
+                    } 
+                 });
+            }
+        }
+
+
 
 
 
@@ -164,7 +182,7 @@ const SearchResults = ({searchTerms}) => {
             <h1>Results</h1>
             <div className='active-reservations'>
                 {searchElements.length == 0 ? <p>No results</p>:searchElements.map(element =>  <SearchResult title={element.title} type={element.type} genre={element.genre}
-                                                 id={element.id} address={element.address} name={element.name} website_url={element.website_url}
+                                                 id={element.id} address={element.address} name={element.name} website_url={element.website_url} author_id={element.author_id} author_name={element.full_name}
                                                  />)}
             </div>
         </div>

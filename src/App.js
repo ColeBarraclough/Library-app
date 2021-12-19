@@ -19,6 +19,7 @@ import { useState } from 'react'
 import AccountInfoLibrarian from './pages/AccountInfo/AccountInfoLibrarian';
 import MediaLibrarian from './pages/Media/MediaLibrarian';
 import CreateAuthor from './pages/CreateAuthor/CreateAuthor';
+import Author from './pages/Author/Author';
 
 const customer_d = {
   cardId: -1,
@@ -95,6 +96,9 @@ function App() {
         <Route exact path="/search-results">
           <SearchResults searchTerms={searchTerms}/>
         </Route>
+        <Route path="/author">
+          <Author />
+        </Route>
 
       </Switch>
     </Router>
@@ -129,7 +133,7 @@ function App() {
           <Administration />
         </Route>
         <Route exact path="/add-media">
-          <AddMedia />
+          <AddMedia librarian={librarian}/>
         </Route>
         <Route exact path="/account-info">
           <AccountInfoLibrarian librarian={librarian} setLibrarian={setLibrarian}/>

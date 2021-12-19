@@ -1,8 +1,9 @@
 import './AddMedia.css'
 import { useState, useEffect } from 'react';
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
 
-const AddMedia = (props) => {
+const AddMedia = ({librarian}) => {
 
     const [selected, setSelected] = useState("book");
 
@@ -135,16 +136,29 @@ const AddMedia = (props) => {
             </div>
         )
     }
+
+    if (librarian == null) {
+        return(
+            <div>
+                
+            </div>
+        )
+    }
     return (
         <div>
-            <h1> Select type of media</h1>
-            <select name="Type of media" defaultValue={"book"} onChange={e => setSelected(e.target.value)}>
-                <option value="book">Book</option>
-                <option value="cd">CD</option>
-                <option value="dvd">DVD</option>
-                <option value="e-Book">E-Book</option>
-                <option value="audiobook">Audiobook</option>
-            </select>
+            <div className='boc'>
+                <h1> Select type of media</h1>
+                <select name="Type of media" defaultValue={"book"} onChange={e => setSelected(e.target.value)}>
+                    <option value="book">Book</option>
+                    <option value="cd">CD</option>
+                    <option value="dvd">DVD</option>
+                    <option value="e-Book">E-Book</option>
+                    <option value="audiobook">Audiobook</option>
+                </select>
+                <Link to="/create-author">
+                    <button className='create-authors'>Create Authors</button>
+                </Link>
+            </div>
 
             <form>
                 <label>

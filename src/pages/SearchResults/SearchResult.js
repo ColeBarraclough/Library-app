@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './SearchResult.css'
 
 
-const SearchResult = ({title, type, id, genre, address, name, website_url}) => {
+const SearchResult = ({title, type, id, genre, address, name, website_url, author_id, author_name}) => {
     let imageUrl;
 
     switch (type) {
@@ -21,6 +21,17 @@ const SearchResult = ({title, type, id, genre, address, name, website_url}) => {
         default:
             imageUrl = "logo192.png"
             break;
+    }
+
+    if (type === "author") {
+        return (
+            <div className='result'>
+                <Link to={`/author?${author_id}`}>
+                    <h2>{author_name}</h2>
+                    <image src={imageUrl} width={"50px"} height={"50px"} className="Thumbnail-img"></image>
+                </Link>
+            </div>
+        )
     }
 
     if (type === "library") {

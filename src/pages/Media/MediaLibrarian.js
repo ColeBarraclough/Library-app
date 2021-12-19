@@ -252,6 +252,16 @@ const MediaLibrarian = ({librarian}) => {
         }
     }
 
+
+
+    if (librarian == null) {
+        return(
+            <div>
+                
+            </div>
+        )
+    }
+
     if (media == null) {
         return (<div>
 
