@@ -90,7 +90,7 @@ const Recommended = ({customer, librarian}) => {
         }
 
 
-        response = await fetch(`https://localhost:44300/api/audiobook`, {
+        response = await fetch(`https://localhost:44300/api/ebook`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ const Recommended = ({customer, librarian}) => {
             }
         }
 
-        response = await fetch(`https://localhost:44300/api/ebook`, {
+        response = await fetch(`https://localhost:44300/api/audiobook`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'

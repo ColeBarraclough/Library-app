@@ -76,6 +76,11 @@ const AddMedia = ({librarian}) => {
     const handleClick = async e => {
         e.preventDefault();
 
+        if (isNaN(misc)) {
+            alert("please enter an integer value")
+            return;
+        }
+
         console.log(title, libraryAddress, genre, publishingDate, authorId, link, misc)
         const media = {
             title: title,
@@ -108,6 +113,9 @@ const AddMedia = ({librarian}) => {
                 return;
         }
         console.log(media)
+        media.borrower_id = null;
+        media.due_date = null;
+        media.date_of_check_out = null;
 
         const response = await fetch(`https://localhost:44300/api/${selected}`, {
             method: "POST",
@@ -123,10 +131,11 @@ const AddMedia = ({librarian}) => {
                 alert("Added media");
                 return;
             }
-            alert("There was a problem " + jsonResponse.message);
+            console.log(jsonResponse.message);
+            alert("There was a problem ");
         }
         console.log(response);
-        alert("There was a problem ")
+        alert("")
         
     }
 
@@ -153,7 +162,7 @@ const AddMedia = ({librarian}) => {
                     <option value="book">Book</option>
                     <option value="cd">CD</option>
                     <option value="dvd">DVD</option>
-                    <option value="e-Book">E-Book</option>
+                    <option value="ebook">E-Book</option>
                     <option value="audiobook">Audiobook</option>
                 </select>
                 <Link to="/create-author">
@@ -212,7 +221,7 @@ const AddMedia = ({librarian}) => {
                             <input type="text" onChange={e => setMisc(e.target.value)}></input>
                         </label>
                     </div>
-                ) : selected === 'e-Book' ? (
+                ) : selected === 'ebook' ? (
                     <div>
                         <label>
                             <p>Link</p>
