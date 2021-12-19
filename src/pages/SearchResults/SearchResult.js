@@ -27,6 +27,7 @@ const SearchResult = ({title, type, id, genre, address, name, website_url, autho
         return (
             <div className='result'>
                 <Link to={`/author?${author_id}`}>
+                    <h2>{type}</h2>
                     <h2>{author_name}</h2>
                     <image src={imageUrl} width={"50px"} height={"50px"} className="Thumbnail-img"></image>
                 </Link>
@@ -38,6 +39,7 @@ const SearchResult = ({title, type, id, genre, address, name, website_url, autho
         return (
             <div className='result'>
                 <Link to={`/library?${address}`}>
+                    <h2>{type}</h2>
                     <h2>{name}</h2>
                     <h4>{address}</h4>
                     <image src={imageUrl} width={"50px"} height={"50px"} className="Thumbnail-img"></image>
@@ -49,6 +51,7 @@ const SearchResult = ({title, type, id, genre, address, name, website_url, autho
     return (
         <div className='result'>
             <Link to={`/media?${id}`}>
+                <h2>{type}</h2>
                 <h2>{title}</h2>
                 <h4>{genre}</h4>
                 <image src={imageUrl} width={"50px"} height={"50px"} className="Thumbnail-img"></image>

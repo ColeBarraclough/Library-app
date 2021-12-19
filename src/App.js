@@ -20,6 +20,7 @@ import AccountInfoLibrarian from './pages/AccountInfo/AccountInfoLibrarian';
 import MediaLibrarian from './pages/Media/MediaLibrarian';
 import CreateAuthor from './pages/CreateAuthor/CreateAuthor';
 import Author from './pages/Author/Author';
+import AuthorLibrarian from './pages/Author/AuthorLibrarian';
 
 const customer_d = {
   cardId: -1,
@@ -143,6 +144,9 @@ function App() {
         </Route>
         <Route exact path="/create-author">
           <CreateAuthor />
+        </Route>
+        <Route path="/author">
+          <AuthorLibrarian />
         </Route>
 
       </Switch>
