@@ -18,6 +18,7 @@ import SearchResults from './pages/SearchResults/SearchResults';
 import { useState } from 'react'
 import AccountInfoLibrarian from './pages/AccountInfo/AccountInfoLibrarian';
 import MediaLibrarian from './pages/Media/MediaLibrarian';
+import CreateAuthor from './pages/CreateAuthor/CreateAuthor';
 
 const customer_d = {
   cardId: -1,
@@ -135,6 +136,9 @@ function App() {
         </Route>
         <Route exact path="/search-results">
           <SearchResults searchTerms={searchTerms}/>
+        </Route>
+        <Route exact path="/create-author">
+          <CreateAuthor />
         </Route>
 
       </Switch>

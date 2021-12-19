@@ -51,6 +51,7 @@ const CreateAccount = ({setCustomer, setToken}) => {
         });
         if (response.ok) {
             const jsonResponse = await response.json();
+            console.log(jsonResponse)
             if (jsonResponse.state === true) {
                 const response2 = await fetch(`https://localhost:44300/api/library_card`, {
                     method: "POST",

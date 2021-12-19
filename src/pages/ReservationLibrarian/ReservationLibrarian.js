@@ -252,6 +252,7 @@ const ReservationLibrarian = ({librarian}) => {
             })
         });
         setActiveReservations_g(null)
+        setCheckedOut(null)
         console.log(response)
     }
 
@@ -271,6 +272,7 @@ const ReservationLibrarian = ({librarian}) => {
             })
         });
         setActiveReservations_g(null)
+        
     }
 
     const handleReturn = async (e, element) => {
@@ -306,6 +308,7 @@ const ReservationLibrarian = ({librarian}) => {
             item )
         });
         setCheckedOut(null)
+        
         
     }
 

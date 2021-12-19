@@ -1,0 +1,19 @@
+.author-cont {
+    margin-left: 10px;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.author-label {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+
+.submit {
+    margin-top: 50px;
+    width: 100px;
+    height: 50px;
+    align-self: center;
+}
