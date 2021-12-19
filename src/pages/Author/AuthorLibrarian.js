@@ -210,15 +210,15 @@ const AuthorLibrarian = () => {
     return (
         <div>
             <div className='library-info'>
-                <label>
+                <label className="create-account-label">
                     <p>First Name</p>
                     <input type='text' disabled={!editing} value={author.first_name} onChange={e => {setAuthor({author_id: author.author_id, first_name: e.target.value, last_name: author.last_name, date_of_birth: author.date_of_birth})}}></input>
                 </label>
-                <label>
+                <label className="create-account-label">
                     <p>Last Name</p>
                     <input type='text' disabled={!editing} value={author.last_name} onChange={e => {setAuthor({author_id: author.author_id, first_name:author.first_name, last_name: e.target.value, date_of_birth: author.date_of_birth})}}></input>
                 </label>
-                <label>
+                <label className="create-account-label">
                     <p>Date Of Birth</p>
                     <input type='date' disabled={!editing} value={author.date_of_birth.substring(0, 10)} onChange={e => {setAuthor({author_id: author.author_id, first_name:author.first_name, last_name: author.last_name, date_of_birth: e.target.value})}}></input>
                 </label>

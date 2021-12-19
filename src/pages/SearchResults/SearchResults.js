@@ -164,9 +164,11 @@ const SearchResults = ({searchTerms}) => {
         if (sentence == null) {
             return
         }
-        const words = sentence.split(" ");
+        
+        const words = sentence.toLowerCase().split(" ");
+        
         for (const word of words) {
-            if (searchTerms.includes(word)) {
+            if (searchTerms.toLowerCase().includes(word)) {
                 return true;
             }
         }

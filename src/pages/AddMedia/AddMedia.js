@@ -107,6 +107,7 @@ const AddMedia = ({librarian}) => {
             default:
                 return;
         }
+        console.log(media)
 
         const response = await fetch(`https://localhost:44300/api/${selected}`, {
             method: "POST",
